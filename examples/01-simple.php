@@ -4,7 +4,7 @@
  * @version 0.1, 2013-07-12
  *
  *
- * This file demonstrate the simpliest way to use the class.
+ * This file demonstrates the simpliest way to use the class.
  * It sets a image, gets the color palette as a array and print it.
  *
  */
