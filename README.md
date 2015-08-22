@@ -1,5 +1,4 @@
 # image-to-color-palette
-======================
 
 A PHP class that generates color palettes from images.
 
@@ -22,13 +21,13 @@ First, pull in the package through Composer.
 
 ```php
 // Create new ColorPalette object
-$Palette = new ColorPalette();
+$palette = new VitorBari\ImageToColorPalette\ColorPalette();
 
 // Set image
-$Palette->set_image_file('images/random.jpg');
+$palette->set_image_file('images/random.jpg');
 
 // Get colors
-$colors = $Palette->get_palette();
+$colors = $palette->get_palette();
 
 // Print colors
 echo "<pre>";
