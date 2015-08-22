@@ -1,4 +1,6 @@
-<?php 
+<?php namespace VitorBari\ImageToColorPalette;
+
+use \Exception;
 
 /**
  * ColorPalette
@@ -151,7 +153,7 @@ class ColorPalette
                 $red        = round(round(($rgb['red'] / 0x33)) * 0x33); 
                 $green      = round(round(($rgb['green'] / 0x33)) * 0x33); 
                 $blue       = round(round(($rgb['blue'] / 0x33)) * 0x33); 
-                $this_Rgb   = sprintf('%02X%02X%02X', $red, $green, $blue); 
+                $this_Rgb   = sprintf('#%02X%02X%02X', $red, $green, $blue);
 
                 if(array_key_exists($this_Rgb, $this->colors)) 
                 { 

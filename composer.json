@@ -1,0 +1,23 @@
+{
+    "name": "vitorbari/image-to-color-palette",
+    "description": "A PHP class that generates color palettes from images",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Vitor Bari Buccianti",
+            "email": "vitorbari@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.0",
+        "ext-gd": "*"
+    },
+    "autoload": {
+        "psr-0": {
+            "VitorBari\\ImageToColorPalette": "src/"
+        },
+        "files": [
+            "src/VitorBari/ImageToColorPalette/helpers.php"
+        ]
+    }
+}
