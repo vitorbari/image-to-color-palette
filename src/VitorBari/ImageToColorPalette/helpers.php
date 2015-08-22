@@ -9,7 +9,7 @@ if ( ! function_exists('colors_table')) {
 		{
 			$html .= '	<tr>
 							<td>'.$color.'</td>
-							<td style="background-color:#'.$color.';">&nbsp;&nbsp;</td>
+							<td style="background-color:'.$color.';">&nbsp;&nbsp;</td>
 						</tr>';
 		}
 		$html .= '</table>';
