@@ -1,5 +1,7 @@
 # image-to-color-palette
 
+[![Build Status](https://travis-ci.org/vitorbari/image-to-color-palette.svg?branch=master)](https://travis-ci.org/vitorbari/image-to-color-palette)
+
 A PHP class that generates color palettes from images.
 
 ## Requirements
