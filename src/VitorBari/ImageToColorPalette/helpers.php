@@ -1,7 +1,7 @@
 <?php
 
-if (! function_exists('colors_table')) {
-    function colors_table($colors = array())
+if (!function_exists('colors_table')) {
+    function colors_table($colors = [])
     {
         $html = '<table>';
         foreach ($colors as $color) {
