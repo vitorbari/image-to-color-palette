@@ -1,68 +1,70 @@
-<?php namespace VitorBari\ImageToColorPalette;
+<?php
 
-use \Exception;
+namespace VitorBari\ImageToColorPalette;
+
+use Exception;
 
 /**
- * ColorPalette
+ * ColorPalette.
  *
  * @category   ColorPalette
- * @package    ColorPalette
+ *
  * @version    0.1, 2013-07-12
  */
 class ColorPalette
 {
     /**
-     * Image file
+     * Image file.
      *
      * @var string
      */
     private $image_file = null;
 
     /**
-     * Number of colors in the palette
+     * Number of colors in the palette.
      *
      * @var int
      */
     private $number_of_colors = 5;
 
     /**
-     * Granularity
+     * Granularity.
      *
      * @var int
      */
     private $granularity = 5;
 
     /**
-     * Palette colors
+     * Palette colors.
      *
      * @var array
      */
-    private $colors = array();
-
+    private $colors = [];
 
     /* Public Methods */
 
     /**
-     * Create a new ColorPalette
+     * Create a new ColorPalette.
      *
      * @throws Exception
      */
     public function __construct()
     {
-        if (! $this->_is_gd_enabled()) {
-            throw new Exception("It looks like GD is not installed");
+        if (!$this->_is_gd_enabled()) {
+            throw new Exception('It looks like GD is not installed');
         }
     }
 
     /**
-     * Set Image file
+     * Set Image file.
      *
      * @param string $image_file
+     *
      * @throws Exception
      */
-    public function set_image_file($image_file='')
+    public function set_image_file($image_file = '')
     {
-        if (! file_exists($image_file)) {
+        if (!file_exists($image_file)) {
             throw new Exception("Image '{$image_file}' not found");
         }
 
@@ -74,12 +76,12 @@ class ColorPalette
         return $this->image_file;
     }
 
-    public function set_number_of_colors($number_of_colors=0)
+    public function set_number_of_colors($number_of_colors = 0)
     {
-        if (! is_integer($number_of_colors)) {
-            throw new Exception("Number of this->colors must be numeric");
+        if (!is_int($number_of_colors)) {
+            throw new Exception('Number of this->colors must be numeric');
         }
-                
+
         $this->number_of_colors = $number_of_colors;
     }
 
@@ -88,12 +90,12 @@ class ColorPalette
         return $this->number_of_colors;
     }
 
-    public function set_granularity($granularity=0)
+    public function set_granularity($granularity = 0)
     {
-        if (! is_integer($granularity)) {
-            throw new Exception("Granularity must be numeric");
+        if (!is_int($granularity)) {
+            throw new Exception('Granularity must be numeric');
         }
-                
+
         $this->granularity = $granularity;
     }
 
@@ -118,7 +120,7 @@ class ColorPalette
         $image_size = getimagesize($this->image_file);
 
         if ($image_size === false) {
-            throw new Exception("Unable to get image image_size data");
+            throw new Exception('Unable to get image image_size data');
         }
 
         if ($image_size[2] == 1) {
@@ -130,17 +132,17 @@ class ColorPalette
         }
 
         if ($img === false) {
-            throw new Exception("Unable to open image file");
+            throw new Exception('Unable to open image file');
         }
 
         for ($x = 0; $x < $image_size[0]; $x += $this->granularity) {
             for ($y = 0; $y < $image_size[1]; $y += $this->granularity) {
                 $this_color = imagecolorat($img, $x, $y);
-                $rgb        = imagecolorsforindex($img, $this_color);
-                $red        = round(round(($rgb['red'] / 0x33)) * 0x33);
-                $green      = round(round(($rgb['green'] / 0x33)) * 0x33);
-                $blue       = round(round(($rgb['blue'] / 0x33)) * 0x33);
-                $this_Rgb   = sprintf('#%02X%02X%02X', $red, $green, $blue);
+                $rgb = imagecolorsforindex($img, $this_color);
+                $red = round(round(($rgb['red'] / 0x33)) * 0x33);
+                $green = round(round(($rgb['green'] / 0x33)) * 0x33);
+                $blue = round(round(($rgb['blue'] / 0x33)) * 0x33);
+                $this_Rgb = sprintf('#%02X%02X%02X', $red, $green, $blue);
 
                 if (array_key_exists($this_Rgb, $this->colors)) {
                     $this->colors[$this_Rgb]++;
