@@ -49,7 +49,7 @@ class ColorPalette
      */
     public function __construct()
     {
-        if (! $this->_is_gd_enabled()) {
+        if (!$this->_is_gd_enabled()) {
             throw new Exception("It looks like GD is not installed");
         }
     }
@@ -60,9 +60,9 @@ class ColorPalette
      * @param string $image_file
      * @throws Exception
      */
-    public function set_image_file($image_file='')
+    public function set_image_file($image_file = '')
     {
-        if (! file_exists($image_file)) {
+        if (!file_exists($image_file)) {
             throw new Exception("Image '{$image_file}' not found");
         }
 
@@ -74,12 +74,12 @@ class ColorPalette
         return $this->image_file;
     }
 
-    public function set_number_of_colors($number_of_colors=0)
+    public function set_number_of_colors($number_of_colors = 0)
     {
-        if (! is_integer($number_of_colors)) {
+        if (!is_integer($number_of_colors)) {
             throw new Exception("Number of this->colors must be numeric");
         }
-                
+
         $this->number_of_colors = $number_of_colors;
     }
 
@@ -88,12 +88,12 @@ class ColorPalette
         return $this->number_of_colors;
     }
 
-    public function set_granularity($granularity=0)
+    public function set_granularity($granularity = 0)
     {
-        if (! is_integer($granularity)) {
+        if (!is_integer($granularity)) {
             throw new Exception("Granularity must be numeric");
         }
-                
+
         $this->granularity = $granularity;
     }
 
